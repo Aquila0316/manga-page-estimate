@@ -12,15 +12,16 @@
 
     <ul>
         <li>「セリフ1」「セリフ2」のような形式で入力してください。</li>
-        <li>以下はカウントしません。
+        <li>以下はカウントしません：
             <ul>
                 <li>「」、。など</li>
                 <li>改行</li>
                 <li>「」外の文字</li>
-            </ul>            
-        </li>
+                </ul>
+            </li>
         <li>あくまで"目安"の算出用のツールです。予めご了承ください。</li>
     </ul>
+
 
     <p>本ツールは下記サービス用に作成したものです。</p>
     <p><a href="https://skima.jp/item/detail?item_id=295735" target="_blank">https://skima.jp/item/detail?item_id=295735</a></p>
@@ -41,7 +42,7 @@
 
             let minPages = Math.ceil(bubbles / 8);
             let maxPages = Math.ceil(bubbles / 3);
-            document.getElementById("result").innerHTML = `吹き出し数: ${bubbles}個<br>想定ページ数: ${minPages}〜${maxPages}P`;
+            document.getElementById("result").textContent = `吹き出し数: ${bubbles}個 想定ページ数: ${minPages}〜${maxPages}P`;
         }
     </script>
 </body>
