@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漫画ページ数見積もり</title>
+</head>
+<body>
+    <h2>漫画のページ数見積もり</h2>
+    <textarea id="scriptInput" rows="5" cols="50" placeholder="セリフを入力してください（「」で区切る）"></textarea><br>
+    <button onclick="calculatePages()">計算</button>
+    <p id="result"></p>
+
+    <script>
+        function calculatePages() {
+            let text = document.getElementById("scriptInput").value;
+            let matches = text.match(/「.*?」/g) || [];
+            let bubbles = 0;
+
+            matches.forEach(quote => {
+                let cleanText = quote.replace(/[、。]/g, "").length;
+                bubbles += Math.ceil(cleanText / 14);
+            });
+
+            let minPages = Math.ceil(bubbles / 8);
+            let maxPages = Math.ceil(bubbles / 3);
+            document.getElementById("result").innerHTML = `吹き出し数: ${bubbles}個<br>想定ページ数: ${minPages}〜${maxPages}P`;
+        }
+    </script>
+</body>
+</html>
